@@ -16,10 +16,10 @@ bot.
 
 import logging
 
-from telegram import __version__ as TG_VER
+from telegram._version import __version__ as TG_VER
 
 try:
-    from telegram import __version_info__
+    from telegram._version import __version_info__
 except ImportError:
     __version_info__ = (0, 0, 0, 0, 0)  # type: ignore[assignment]
 
@@ -29,7 +29,9 @@ if __version_info__ < (20, 0, 0, "alpha", 5):
         f"{TG_VER} version of this example, "
         f"visit https://docs.python-telegram-bot.org/en/v{TG_VER}/examples.html"
     )
-from telegram import ReplyKeyboardMarkup, ReplyKeyboardRemove, Update
+from telegram._replykeyboardmarkup import ReplyKeyboardMarkup
+from telegram._replykeyboardremove import ReplyKeyboardRemove
+from telegram._update import Update
 from telegram.ext import (
     Application,
     CommandHandler,
@@ -152,7 +154,7 @@ async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
 def main() -> None:
     """Run the bot."""
     # Create the Application and pass it your bot's token.
-    application = Application.builder().token("TOKEN").build()
+    application = Application.builder().token("6085146677:AAGLZrV3vlYfeXLy_mnzDcbkQO7v1Q0TLh4").build()
 
     # Add conversation handler with the states GENDER, PHOTO, LOCATION and BIO
     conv_handler = ConversationHandler(
